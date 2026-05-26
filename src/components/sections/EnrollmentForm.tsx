@@ -131,8 +131,8 @@ export function EnrollmentForm() {
         html: `
           <p style="margin:0 0 12px;line-height:1.6;color:rgba(255,255,255,0.75)">
             Thank you! Your enrollment has been submitted successfully.
-            Check your email for package details and next steps.
-            Coach Edmar will contact you within <strong>24 hours</strong>.
+            Coach Edmar will contact you within <strong>24 hours</strong> to confirm
+            your schedule and payment details.
           </p>
           <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.5)">
             Urgent inquiries: <a href="tel:+639272731688" style="color:#ff6b35">0927 273 1688</a>

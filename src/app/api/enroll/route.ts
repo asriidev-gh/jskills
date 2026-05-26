@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import packagesData from "@/data/packages.json";
 import { sendEmail, escapeHtml } from "@/lib/email";
 import { saveEnrollment } from "@/lib/enrollment-store";
+import { getMongoConnectionHelp } from "@/lib/mongodb";
 import { buildWelcomeEmailHtml } from "@/lib/enrollment-emails";
 import { getPackagePriceLabel } from "@/lib/clinic-data";
 import type { TrainingPackage } from "@/types/clinic";
@@ -130,7 +131,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (selectedPackage) {
+    if (process.env.SEND_REGISTRANT_EMAIL === "true" && selectedPackage) {
       const welcomeResult = await sendEmail({
         to: registrantEmail,
         subject: `Welcome to JSkills — ${selectedPackage.name}`,
@@ -149,9 +150,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, id: enrollmentId });
   } catch (err) {
     console.error("Enrollment error:", err);
+    const mongoHelp = getMongoConnectionHelp(err);
     return NextResponse.json(
-      { error: "Failed to save enrollment. Please try again." },
-      { status: 500 }
+      {
+        error: mongoHelp ?? "Failed to save enrollment. Please try again.",
+      },
+      { status: mongoHelp ? 503 : 500 }
     );
   }
 }
