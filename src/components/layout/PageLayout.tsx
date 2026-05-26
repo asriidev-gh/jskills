@@ -20,7 +20,7 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <>
       <AnimatedNavbar />
-      <main className="min-h-screen bg-court-dark">{children}</main>
+      <main className="min-h-screen overflow-x-hidden bg-court-dark">{children}</main>
       <Footer />
     </>
   );

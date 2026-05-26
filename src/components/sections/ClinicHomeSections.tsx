@@ -216,8 +216,8 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
             subtitle="Weekly schedule across BGC Taguig, Greenhills, and Quezon City."
           />
 
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-court-card/80 backdrop-blur-xl">
-            <div className="overflow-x-auto">
+          <div className="w-full min-w-0 max-w-full overflow-hidden rounded-2xl border border-white/10 bg-court-card/80 backdrop-blur-xl">
+            <div className="w-full max-w-full overflow-x-auto">
               <table className="w-full min-w-[600px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/5 text-xs font-bold uppercase tracking-wider text-white/50">
@@ -243,7 +243,7 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
             </div>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 min-w-0 max-w-full">
             <div className="mb-6 flex flex-wrap gap-2">
               {locations.map((loc) => (
                 <button
@@ -262,8 +262,8 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
               ))}
             </div>
             {currentLocation && (
-              <div className="grid gap-6 lg:grid-cols-2">
-                <Card>
+              <div className="grid min-w-0 gap-6 lg:grid-cols-2">
+                <Card className="min-w-0">
                   <CardContent className="p-6">
                     <MapPin className="mb-3 h-6 w-6 text-accent-orange" />
                     <h3 className="font-display text-xl font-bold text-white">
@@ -275,12 +275,13 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
                     </p>
                   </CardContent>
                 </Card>
-                <div className="overflow-hidden rounded-2xl border border-white/10 aspect-video min-h-[280px]">
+                <div className="relative min-w-0 w-full max-w-full overflow-hidden rounded-2xl border border-white/10 aspect-video min-h-[220px] sm:min-h-[280px]">
                   <iframe
                     title={`Map — ${currentLocation.name}`}
                     src={currentLocation.mapEmbed}
-                    className="h-full w-full"
+                    className="absolute inset-0 h-full w-full max-w-full border-0"
                     loading="lazy"
+                    allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
