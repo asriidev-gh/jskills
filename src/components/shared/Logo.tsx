@@ -9,6 +9,8 @@ interface LogoProps {
   showText?: boolean;
   href?: string;
   size?: "sm" | "md" | "lg";
+  /** Defaults to transparent PNG; use DASHBOARD_LOGO on admin pages */
+  src?: string;
 }
 
 const sizes = {
@@ -23,13 +25,14 @@ export function Logo({
   showText = false,
   href = "/",
   size = "md",
+  src = SITE_LOGO,
 }: LogoProps) {
   const { width, height, className: sizeClass } = sizes[size];
 
   const content = (
     <span className={cn("inline-flex items-center gap-2", className)}>
       <Image
-        src={SITE_LOGO}
+        src={src}
         alt={SITE_LOGO_ALT}
         width={width}
         height={height}
