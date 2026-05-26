@@ -1,0 +1,7 @@
+[
+  { "id": "s1", "name": "Nike", "logo": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=80&fit=crop" },
+  { "id": "s2", "name": "Gatorade", "logo": "https://images.unsplash.com/photo-1556906781-2a63f966eaec?w=200&h=80&fit=crop" },
+  { "id": "s3", "name": "Wilson", "logo": "https://images.unsplash.com/photo-1519861531473-920026218dc7?w=200&h=80&fit=crop" },
+  { "id": "s4", "name": "Spalding", "logo": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&h=80&fit=crop" },
+  { "id": "s5", "name": "Under Armour", "logo": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&h=80&fit=crop" }
+]

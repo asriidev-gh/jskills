@@ -1,0 +1,91 @@
+[
+  {
+    "id": "package-a",
+    "name": "Package A",
+    "type": "1-on-1",
+    "price": 5990,
+    "sessions": 4,
+    "validity": "20 days to consume",
+    "duration": "~60 min per session",
+    "skills": ["Evaluation & assessment", "Custom program planning", "Skill drills", "Conditioning & strength"],
+    "description": "Ideal for players starting a focused development block.",
+    "featured": false
+  },
+  {
+    "id": "package-b",
+    "name": "Package B",
+    "type": "1-on-1",
+    "price": 11990,
+    "sessions": 8,
+    "validity": "30 days to consume",
+    "duration": "~60 min per session",
+    "skills": ["Progressive skill blocks", "Game situational training", "Conditioning & strength", "Video feedback (optional)"],
+    "description": "Best value for committed players building habits over a full month.",
+    "featured": true
+  },
+  {
+    "id": "package-c",
+    "name": "Package C",
+    "type": "1-on-1",
+    "price": 17990,
+    "sessions": 12,
+    "validity": "45 days to consume",
+    "duration": "~60 min per session",
+    "skills": ["Full skill curriculum", "Advanced finishing", "Defense & footwork", "Strength periodization"],
+    "description": "Complete development cycle with maximum coach attention.",
+    "featured": false
+  },
+  {
+    "id": "group-monthly",
+    "name": "Group Training",
+    "type": "group",
+    "price": 3900,
+    "priceLabel": "₱3,900 / month",
+    "sessions": 4,
+    "period": "4 sessions per month",
+    "includes": ["Basketball jersey (dark & light upper only)"],
+    "skills": ["Team drills", "Spacing & movement", "Competitive scrimmages", "Fundamentals by level"],
+    "schedule": "Schedule varies by location — contact for batch times",
+    "description": "Monthly group training with jersey included.",
+    "featured": true
+  },
+  {
+    "id": "beginner-clinic",
+    "name": "Beginner Clinic",
+    "type": "program",
+    "price": 0,
+    "priceLabel": "Contact for schedule",
+    "sessions": 0,
+    "ages": "Ages 6–10",
+    "duration": "90 min · Saturdays",
+    "skills": ["Dribbling basics", "Passing & catching", "Fun games", "Court awareness"],
+    "schedule": "Saturdays 9:00 AM (Greenhills)",
+    "description": "Placeholder program — add your beginner batch schedule and pricing."
+  },
+  {
+    "id": "intermediate-training",
+    "name": "Intermediate Training",
+    "type": "program",
+    "price": 0,
+    "priceLabel": "Contact for schedule",
+    "sessions": 0,
+    "ages": "Ages 11–15",
+    "duration": "2 hrs · Twice weekly",
+    "skills": ["Shooting mechanics", "1-on-1 moves", "Help defense", "Conditioning"],
+    "schedule": "Tue & Thu 4:00 PM (BGC)",
+    "description": "Placeholder program — add your intermediate batch details."
+  },
+  {
+    "id": "elite-camp",
+    "name": "Advanced / Elite Camp",
+    "type": "program",
+    "price": 0,
+    "priceLabel": "Contact for schedule",
+    "sessions": 0,
+    "ages": "Ages 16+",
+    "duration": "3-day intensive",
+    "skills": ["Advanced shooting", "Pick & roll reads", "Defensive schemes", "Athletic testing"],
+    "schedule": "Seasonal — see Events",
+    "description": "Placeholder program — add your elite camp dates and pricing."
+  }
+]

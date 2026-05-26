@@ -1,0 +1,6 @@
+[
+  { "id": "st1", "label": "Founded", "value": "2014", "icon": "calendar" },
+  { "id": "st2", "label": "Active Players", "value": "240", "suffix": "+", "icon": "users" },
+  { "id": "st3", "label": "Championships", "value": "8", "icon": "trophy" },
+  { "id": "st4", "label": "Grants Secured", "value": "$2.4", "suffix": "M", "icon": "dollar" }
+]

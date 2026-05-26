@@ -1,0 +1,66 @@
+[
+  {
+    "id": "events-1",
+    "src": "/images/training_in_action/events/events_1.jpg",
+    "alt": "JSkills clinic event — on-court action",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-2",
+    "src": "/images/training_in_action/events/events_2.jpg",
+    "alt": "JSkills clinic event — team training",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-3",
+    "src": "/images/training_in_action/events/events_3.jpg",
+    "alt": "JSkills clinic event — skills session",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-4",
+    "src": "/images/training_in_action/events/events_4.jpg",
+    "alt": "JSkills clinic event — group workout",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "training-1",
+    "src": "/images/training_in_action/training/training_1.jpg",
+    "alt": "JSkills skills training session",
+    "category": "training",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "action-1",
+    "src": "/images/custom-img-38-copyright.jpg",
+    "alt": "On-court action drill",
+    "category": "action",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "group-1",
+    "src": "/images/training_in_action/events/events_2.jpg",
+    "alt": "Group training session",
+    "category": "group",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "group-2",
+    "src": "/images/training_in_action/events/events_4.jpg",
+    "alt": "Team huddle and fellowship",
+    "category": "group",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  }
+]

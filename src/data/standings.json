@@ -1,0 +1,8 @@
+[
+  { "position": 1, "teamId": "sentinels", "teamName": "Sentinels", "teamSlug": "sentinels", "wins": 12, "losses": 3, "gamesBehind": 0, "pointsAgainst": 98 },
+  { "position": 2, "teamId": "wildcats", "teamName": "Wildcats", "teamSlug": "wildcats", "wins": 11, "losses": 4, "gamesBehind": 1, "pointsAgainst": 102 },
+  { "position": 3, "teamId": "colonials", "teamName": "Colonials", "teamSlug": "colonials", "wins": 10, "losses": 5, "gamesBehind": 2, "pointsAgainst": 105 },
+  { "position": 4, "teamId": "defenders", "teamName": "Defenders", "teamSlug": "defenders", "wins": 9, "losses": 6, "gamesBehind": 3, "pointsAgainst": 108 },
+  { "position": 5, "teamId": "eagles", "teamName": "Eagles", "teamSlug": "eagles", "wins": 7, "losses": 8, "gamesBehind": 5, "pointsAgainst": 112 },
+  { "position": 6, "teamId": "vipers", "teamName": "Vipers", "teamSlug": "vipers", "wins": 5, "losses": 10, "gamesBehind": 7, "pointsAgainst": 118 }
+]

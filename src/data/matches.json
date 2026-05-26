@@ -1,0 +1,53 @@
+[
+  {
+    "id": "m1",
+    "date": "2026-06-15",
+    "time": "7:30 PM",
+    "venue": "Hoops Arena, Chicago",
+    "league": "Primary League 2026",
+    "homeTeam": { "id": "vipers", "name": "Vipers", "logo": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=100&h=100&fit=crop" },
+    "awayTeam": { "id": "wildcats", "name": "Wildcats", "logo": "https://images.unsplash.com/photo-1519861531473-920026218dc7?w=100&h=100&fit=crop" },
+    "status": "upcoming",
+    "featured": true
+  },
+  {
+    "id": "m2",
+    "date": "2026-05-28",
+    "time": "6:00 PM",
+    "venue": "West Court Center",
+    "league": "Primary League 2026",
+    "homeTeam": { "id": "sentinels", "name": "Sentinels", "logo": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=100&h=100&fit=crop", "score": 98 },
+    "awayTeam": { "id": "colonials", "name": "Colonials", "logo": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=100&h=100&fit=crop", "score": 91 },
+    "status": "completed"
+  },
+  {
+    "id": "m3",
+    "date": "2026-06-01",
+    "time": "8:00 PM",
+    "venue": "Hoops Arena, Chicago",
+    "league": "Primary League 2026",
+    "homeTeam": { "id": "defenders", "name": "Defenders", "logo": "https://images.unsplash.com/photo-1504450758481-733bdaa0ccd3?w=100&h=100&fit=crop" },
+    "awayTeam": { "id": "eagles", "name": "Eagles", "logo": "https://images.unsplash.com/photo-1559697848-1743d921d990?w=100&h=100&fit=crop" },
+    "status": "upcoming"
+  },
+  {
+    "id": "m4",
+    "date": "2026-05-20",
+    "time": "7:00 PM",
+    "venue": "South Side Gym",
+    "league": "Primary League 2026",
+    "homeTeam": { "id": "wildcats", "name": "Wildcats", "logo": "https://images.unsplash.com/photo-1519861531473-920026218dc7?w=100&h=100&fit=crop", "score": 105 },
+    "awayTeam": { "id": "vipers", "name": "Vipers", "logo": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=100&h=100&fit=crop", "score": 88 },
+    "status": "completed"
+  },
+  {
+    "id": "m5",
+    "date": "2026-06-08",
+    "time": "7:30 PM",
+    "venue": "Hoops Arena, Chicago",
+    "league": "Primary League 2026",
+    "homeTeam": { "id": "colonials", "name": "Colonials", "logo": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=100&h=100&fit=crop" },
+    "awayTeam": { "id": "sentinels", "name": "Sentinels", "logo": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=100&h=100&fit=crop" },
+    "status": "upcoming"
+  }
+]

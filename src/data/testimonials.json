@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Maria Santos",
+    "role": "Parent · Beginner program",
+    "quote": "My 8-year-old was nervous at first, but Coach Edmar made him feel welcome. His dribbling and confidence improved in just a month!",
+    "rating": 5
+  },
+  {
+    "id": "2",
+    "name": "James Dela Cruz",
+    "role": "Teen player · Package B",
+    "quote": "The 1-on-1 sessions changed my shooting form completely. I finally understand footwork and how to read defenders.",
+    "rating": 5
+  },
+  {
+    "id": "3",
+    "name": "Patricia Lim",
+    "role": "Parent · Group training",
+    "quote": "Group training is worth it — jersey included and the kids love their teammates. Great value for monthly sessions.",
+    "rating": 5
+  },
+  {
+    "id": "4",
+    "name": "Kevin Tan",
+    "role": "Advanced player",
+    "quote": "Placeholder testimonial — replace with a real success story from your athletes.",
+    "rating": 5
+  }
+]

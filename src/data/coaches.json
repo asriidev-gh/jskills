@@ -1,0 +1,19 @@
+[
+  {
+    "id": "edmar",
+    "name": "Coach Edmar",
+    "role": "Head Trainer & Founder · JSkills Basketball Clinic",
+    "image": "/images/coach_edmar.png",
+    "experience": "8+ years coaching youth and adult players across Metro Manila — from first-time beginners to advanced athletes.",
+    "certifications": ["Skills Development", "Strength & Conditioning", "Program Planning"],
+    "specialty": ["Shooting", "Ball Handling", "Conditioning", "Footwork", "Game IQ", "Character Development"],
+    "bio": "Every session starts with you. Coach Edmar personally leads evaluations, builds custom training plans, and works hands-on with each player — blending fundamentals, competitive reps, and faith-driven mentorship.",
+    "philosophy": "Train skills mold character preach the Gospel",
+    "highlights": [
+      "Session 1: evaluation, assessment & personalized program planning",
+      "1-on-1 packages and monthly group training available",
+      "Training locations: BGC Taguig, Greenhills & Quezon City",
+      "All ages and skill levels welcome — no experience required"
+    ]
+  }
+]

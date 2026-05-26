@@ -1,0 +1,42 @@
+[
+  {
+    "id": "e1",
+    "title": "Summer Skills Camp 2026",
+    "date": "April 15 – 17, 2026",
+    "location": "Greenhills, San Juan",
+    "description": "3-day intensive camp covering shooting, ball handling, and game IQ. Open to ages 10–18.",
+    "type": "camp",
+    "image": "/images/training_in_action/events/events_1.jpg",
+    "imagePosition": "center top"
+  },
+  {
+    "id": "e2",
+    "title": "Elite Shooting Clinic",
+    "date": "May 10, 2026",
+    "location": "BGC, Taguig",
+    "description": "Half-day clinic focused on form, range, and off-the-dribble shooting. Limited slots available.",
+    "type": "clinic",
+    "image": "/images/training_in_action/events/events_2.jpg",
+    "imagePosition": "center top"
+  },
+  {
+    "id": "e3",
+    "title": "Clinic Invitational Tournament",
+    "date": "June 21 – 22, 2026",
+    "location": "Quezon City",
+    "description": "Friendly tournament for clinic players to apply skills in game situations. Teams formed by age group.",
+    "type": "tournament",
+    "image": "/images/training_in_action/events/events_3.jpg",
+    "imagePosition": "center top"
+  },
+  {
+    "id": "e4",
+    "title": "Open Court Training Day",
+    "date": "Coming soon",
+    "location": "Metro Manila",
+    "description": "Community training day — drills, scrimmages, and fellowship for all JSkills athletes and families.",
+    "type": "clinic",
+    "image": "/images/training_in_action/events/events_4.jpg",
+    "imagePosition": "center top"
+  }
+]

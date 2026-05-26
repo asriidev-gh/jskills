@@ -1,0 +1,43 @@
+[
+  {
+    "id": "p1",
+    "slug": "jskills-club-jersey",
+    "name": "JSkills Club Jersey",
+    "price": 1299,
+    "category": "Apparel",
+    "productType": "jersey",
+    "image": "",
+    "description": "Official clinic jersey — dark & light upper styles available.",
+    "badge": "Included in Group Training"
+  },
+  {
+    "id": "p2",
+    "slug": "training-shorts",
+    "name": "Training Shorts",
+    "price": 699,
+    "category": "Apparel",
+    "productType": "shorts",
+    "image": "",
+    "description": "Lightweight mesh shorts built for court movement and daily training."
+  },
+  {
+    "id": "p3",
+    "slug": "court-socks-2pack",
+    "name": "Court Socks (2-Pack)",
+    "price": 349,
+    "category": "Accessories",
+    "productType": "socks",
+    "image": "",
+    "description": "Cushioned crew socks with arch support — game-day comfort."
+  },
+  {
+    "id": "p4",
+    "slug": "performance-headband",
+    "name": "Performance Headband",
+    "price": 249,
+    "category": "Accessories",
+    "productType": "headband",
+    "image": "",
+    "description": "Moisture-wicking headband — keeps focus on the game, not the sweat."
+  }
+]

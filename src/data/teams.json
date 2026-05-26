@@ -1,0 +1,74 @@
+[
+  {
+    "id": "sentinels",
+    "name": "Sentinels",
+    "slug": "sentinels",
+    "logo": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2014,
+    "wins": 12,
+    "losses": 3,
+    "description": "Elite defensive squad known for lockdown perimeter play and championship mentality.",
+    "primaryColor": "#ff6b35"
+  },
+  {
+    "id": "wildcats",
+    "name": "Wildcats",
+    "slug": "wildcats",
+    "logo": "https://images.unsplash.com/photo-1519861531473-920026218dc7?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2012,
+    "wins": 11,
+    "losses": 4,
+    "description": "Fast-paced transition team with explosive guards and relentless energy.",
+    "primaryColor": "#e63946"
+  },
+  {
+    "id": "colonials",
+    "name": "Colonials",
+    "slug": "colonials",
+    "logo": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2010,
+    "wins": 10,
+    "losses": 5,
+    "description": "Veteran roster built on fundamentals, spacing, and clutch fourth-quarter execution.",
+    "primaryColor": "#ff8c42"
+  },
+  {
+    "id": "defenders",
+    "name": "Defenders",
+    "slug": "defenders",
+    "logo": "https://images.unsplash.com/photo-1504450758481-733bdaa0ccd3?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2015,
+    "wins": 9,
+    "losses": 6,
+    "description": "Physical interior presence with dominant rebounding and paint protection.",
+    "primaryColor": "#ff6b35"
+  },
+  {
+    "id": "eagles",
+    "name": "Eagles",
+    "slug": "eagles",
+    "logo": "https://images.unsplash.com/photo-1559697848-1743d921d990?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2016,
+    "wins": 7,
+    "losses": 8,
+    "description": "Young rising squad focused on development, teamwork, and community impact.",
+    "primaryColor": "#e63946"
+  },
+  {
+    "id": "vipers",
+    "name": "Vipers",
+    "slug": "vipers",
+    "logo": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=200&h=200&fit=crop",
+    "city": "Chicago",
+    "founded": 2018,
+    "wins": 5,
+    "losses": 10,
+    "description": "Aggressive slashing attack with high-tempo offense and fearless shot selection.",
+    "primaryColor": "#ff8c42"
+  }
+]
