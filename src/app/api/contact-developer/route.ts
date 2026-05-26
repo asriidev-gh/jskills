@@ -1,9 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-
-const DEVELOPER_EMAIL = process.env.DEVELOPER_EMAIL || "asriidev@gmail.com";
-const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "JSkills Website <onboarding@resend.dev>";
+import { sendEmail, escapeHtml } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -25,23 +21,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.error("RESEND_API_KEY is not configured");
-      return NextResponse.json(
-        {
-          error:
-            "Email service is not configured. Please add RESEND_API_KEY to environment variables.",
-        },
-        { status: 503 }
-      );
-    }
-
-    const resend = new Resend(apiKey);
-
-    const { error } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: DEVELOPER_EMAIL,
+    const result = await sendEmail({
       replyTo: email,
       subject: `[JSkills Website] Contact Developer — ${name}`,
       html: `
@@ -55,11 +35,10 @@ export async function POST(request: Request) {
       `,
     });
 
-    if (error) {
-      console.error("Resend error:", error);
+    if (!result.ok) {
       return NextResponse.json(
-        { error: "Failed to send email. Please try again later." },
-        { status: 500 }
+        { error: result.error },
+        { status: result.error.includes("not configured") ? 503 : 500 }
       );
     }
 
@@ -71,12 +50,4 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-}
-
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }

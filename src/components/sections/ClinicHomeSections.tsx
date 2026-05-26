@@ -19,6 +19,7 @@ import { PackageCard } from "@/components/cards/PackageCard";
 import { ProductCard } from "@/components/cards/ProductCard";
 import { NewsCard } from "@/components/cards/NewsCard";
 import { EnrollmentForm } from "@/components/sections/EnrollmentForm";
+import { EnrollmentVideo } from "@/components/sections/EnrollmentVideo";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,7 +36,7 @@ import {
   getProgramPackages,
   getLocationById,
 } from "@/lib/clinic-data";
-import { formatPHP, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import type { Product } from "@/types";
 import type { NewsArticle } from "@/types";
@@ -133,7 +134,7 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle label="Gallery" title="Training in action" align="center" />
           <div className="mb-8 flex flex-wrap justify-center gap-2">
-            {["all", "training", "action", "group", "events"].map((cat) => (
+            {["all", "training", "group", "events"].map((cat) => (
               <button
                 key={cat}
                 type="button"
@@ -292,30 +293,13 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
       {/* 7. Enrollment */}
       <section id="enroll" className="scroll-mt-24 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-            <div>
-              <SectionTitle
-                label="Registration"
-                title="Enroll today"
-                subtitle="Choose your package, submit the form, and pay via GCash, BPI, or cash. Coach Edmar will confirm your first evaluation session."
-                className="mb-0"
-              />
-              <div className="mt-8 space-y-4">
-                {getOneOnOnePackages().map((p) => (
-                  <div
-                    key={p.id}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3"
-                  >
-                    <span className="font-medium text-white">{p.name}</span>
-                    <span className="font-bold text-accent-orange">{formatPHP(p.price)}</span>
-                  </div>
-                ))}
-                <div className="flex items-center justify-between rounded-xl border border-accent-orange/30 bg-accent-orange/5 px-4 py-3">
-                  <span className="font-medium text-white">Group Training</span>
-                  <span className="font-bold text-accent-orange">₱3,900 / month</span>
-                </div>
-              </div>
-            </div>
+          <SectionTitle
+            label="Registration"
+            title="Enroll today"
+            subtitle="Choose your package, submit the form, and pay via GCash, BPI, or cash. Coach Edmar will confirm your first evaluation session."
+          />
+          <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-stretch">
+            <EnrollmentVideo />
             <EnrollmentForm />
           </div>
         </div>

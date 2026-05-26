@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -14,11 +15,13 @@ import {
 import { SectionTitle } from "@/components/shared/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
+import { fadeInUp, slideInLeftReveal, slideInRight } from "@/lib/animations";
 import { getHeadCoach, contact } from "@/lib/clinic-data";
+import { PROGRAMS_SECTION_ID, scrollToSection } from "@/lib/scroll-navigation";
 
 export function FeaturedCoach() {
   const coach = getHeadCoach();
+  const pathname = usePathname();
 
   return (
     <section id="coaches" className="scroll-mt-24 border-y border-white/10 bg-court-darker py-20 md:py-28">
@@ -33,24 +36,25 @@ export function FeaturedCoach() {
         <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
           {/* Photo */}
           <motion.div
-            variants={slideInLeft}
+            variants={slideInLeftReveal}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="relative lg:col-span-5"
           >
             <div className="absolute -inset-4 rounded-3xl bg-gradient-accent opacity-20 blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-accent-orange/30 shadow-glow">
-              <div className="relative aspect-[4/5] sm:aspect-[3/4]">
+              <div className="relative aspect-[4/5] bg-court-card sm:aspect-[3/4]">
                 <Image
                   src={coach.image}
                   alt={coach.name}
                   fill
+                  unoptimized
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-court-dark via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-court-dark/90 via-court-dark/20 to-transparent" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="font-display text-3xl font-black uppercase text-white">
@@ -117,7 +121,18 @@ export function FeaturedCoach() {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg">
-                <Link href="/#enroll">Train with Coach Edmar</Link>
+                <Link
+                  href={`/#${PROGRAMS_SECTION_ID}`}
+                  scroll={false}
+                  onClick={(e) => {
+                    if (pathname === "/") {
+                      e.preventDefault();
+                      scrollToSection(PROGRAMS_SECTION_ID);
+                    }
+                  }}
+                >
+                  Train with Coach Edmar
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href={contact.phoneLink}>

@@ -8,6 +8,7 @@ import testimonialsData from "@/data/testimonials.json";
 import galleryData from "@/data/gallery.json";
 import eventsData from "@/data/events.json";
 import contactData from "@/data/contact.json";
+import { formatPHP } from "@/lib/utils";
 import type {
   Coach,
   TrainingPackage,
@@ -44,4 +45,13 @@ export function getProgramPackages() {
 
 export function getLocationById(id: string) {
   return locations.find((l) => l.id === id);
+}
+
+export function getPackageById(id: string) {
+  return packages.find((p) => p.id === id);
+}
+
+export function getPackagePriceLabel(pkg: TrainingPackage): string {
+  if (pkg.price > 0) return formatPHP(pkg.price);
+  return pkg.priceLabel || "Contact for pricing";
 }

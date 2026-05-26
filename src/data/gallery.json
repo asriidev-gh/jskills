@@ -40,14 +40,6 @@
     "aspectRatio": "portrait"
   },
   {
-    "id": "action-1",
-    "src": "/images/custom-img-38-copyright.jpg",
-    "alt": "On-court action drill",
-    "category": "action",
-    "objectPosition": "center top",
-    "aspectRatio": "portrait"
-  },
-  {
     "id": "group-1",
     "src": "/images/training_in_action/events/events_2.jpg",
     "alt": "Group training session",

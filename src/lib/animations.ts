@@ -46,6 +46,15 @@ export const slideInLeft: Variants = {
   },
 };
 
+/** Slide without fading — keeps photos visible if in-view detection is delayed */
+export const slideInLeftReveal: Variants = {
+  hidden: { x: -40 },
+  visible: {
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export const slideInRight: Variants = {
   hidden: { opacity: 0, x: 60 },
   visible: {

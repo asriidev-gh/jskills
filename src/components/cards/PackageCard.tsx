@@ -6,16 +6,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatPHP } from "@/lib/utils";
+import { scrollToEnrollment } from "@/lib/enroll-navigation";
 import type { TrainingPackage } from "@/types/clinic";
 import { scaleIn } from "@/lib/animations";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface PackageCardProps {
   pkg: TrainingPackage;
 }
 
 export function PackageCard({ pkg }: PackageCardProps) {
+  const pathname = usePathname();
   const showPrice = pkg.price > 0;
+  const enrollHref = `/?package=${pkg.id}#enroll`;
+
+  const handleEnrollClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      scrollToEnrollment(pkg.id);
+    }
+  };
 
   return (
     <motion.div variants={scaleIn} whileHover={{ y: -6 }} transition={{ duration: 0.3 }}>
@@ -88,7 +99,9 @@ export function PackageCard({ pkg }: PackageCardProps) {
           </div>
 
           <Button asChild className="mt-6 w-full" variant={pkg.featured ? "default" : "outline"}>
-            <Link href="/#enroll">Enroll Now</Link>
+            <Link href={enrollHref} scroll={false} onClick={handleEnrollClick}>
+              Enroll Now
+            </Link>
           </Button>
         </CardContent>
       </Card>
