@@ -97,7 +97,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/10 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:w-full">
             <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} JSkills Basketball Clinic. All Rights Reserved.
+              © {new Date().getFullYear()} JSkills Basketball. All Rights Reserved.
             </p>
             <p className="text-xs text-white/40 italic">
               &ldquo;No longer I but Christ&rdquo;

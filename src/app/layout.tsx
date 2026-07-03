@@ -27,8 +27,12 @@ export default function RootLayout({
       lang="en"
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${oswald.variable} scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-court-dark font-body text-white antialiased">
+      <body
+        className="min-h-screen bg-court-dark font-body text-white antialiased"
+        suppressHydrationWarning
+      >
         <PageLayout>{children}</PageLayout>
       </body>
     </html>

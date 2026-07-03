@@ -7,7 +7,7 @@ import { news } from "@/lib/data";
 
 export const metadata: Metadata = createPageMetadata(
   "Basketball Tips & Blog",
-  "Drills, shooting tips, and training advice from JSkills Basketball Clinic."
+  "Drills, shooting tips, and training advice from JSkills Basketball."
 );
 
 export default function NewsPage() {

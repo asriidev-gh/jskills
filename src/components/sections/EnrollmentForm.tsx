@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { Loader2 } from "lucide-react";
@@ -18,18 +18,25 @@ import {
   packages,
 } from "@/lib/clinic-data";
 import { formatPHP } from "@/lib/utils";
-import { CreditCard, Smartphone, Banknote } from "lucide-react";
+import Image from "next/image";
+import { CreditCard, Smartphone, Banknote, Upload, X } from "lucide-react";
 import {
   ENROLL_PACKAGE_EVENT,
   ENROLL_SECTION_ID,
   getPackageIdFromUrl,
 } from "@/lib/enroll-navigation";
+import { PAYMENTS_REQUIRING_PROOF } from "@/lib/payment-proof";
 
 const paymentMethods = [
-  { id: "gcash", label: "GCash", icon: Smartphone },
+  { id: "paymaya", label: "PayMaya", icon: Smartphone },
   { id: "bpi", label: "BPI Bank Transfer", icon: CreditCard },
   { id: "cash", label: "Cash", icon: Banknote },
 ];
+
+const paymentQrImages: Record<string, string> = {
+  bpi: "/images/payment/bpi.png",
+  paymaya: "/images/payment/paymaya.jpg",
+};
 
 const allPackages = [
   ...getOneOnOnePackages(),
@@ -44,8 +51,45 @@ const swalTheme = {
 
 export function EnrollmentForm() {
   const [loading, setLoading] = useState(false);
-  const [payment, setPayment] = useState("gcash");
+  const [payment, setPayment] = useState("paymaya");
   const [selectedPackageId, setSelectedPackageId] = useState("");
+  const [paymentScreenshot, setPaymentScreenshot] = useState<File | null>(null);
+  const [paymentScreenshotPreview, setPaymentScreenshotPreview] = useState<string | null>(
+    null
+  );
+  const previewUrlRef = useRef<string | null>(null);
+
+  const revokePreviewUrl = useCallback(() => {
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = null;
+    }
+  }, []);
+
+  const selectPaymentScreenshot = useCallback(
+    (file: File | null) => {
+      revokePreviewUrl();
+
+      if (file) {
+        const url = URL.createObjectURL(file);
+        previewUrlRef.current = url;
+        setPaymentScreenshot(file);
+        setPaymentScreenshotPreview(url);
+        return;
+      }
+
+      setPaymentScreenshot(null);
+      setPaymentScreenshotPreview(null);
+    },
+    [revokePreviewUrl]
+  );
+
+  const clearPaymentScreenshot = useCallback(() => {
+    selectPaymentScreenshot(null);
+  }, [selectPaymentScreenshot]);
+
+  const requiresPaymentProof = PAYMENTS_REQUIRING_PROOF.has(payment);
+  const canSubmit = !requiresPaymentProof || paymentScreenshot !== null;
 
   const selectedPackage = selectedPackageId
     ? getPackageById(selectedPackageId)
@@ -86,28 +130,43 @@ export function EnrollmentForm() {
     };
   }, [applyPackageFromUrl]);
 
+  useEffect(() => () => revokePreviewUrl(), [revokePreviewUrl]);
+
+  const handlePaymentChange = (methodId: string) => {
+    setPayment(methodId);
+    if (!PAYMENTS_REQUIRING_PROOF.has(methodId)) {
+      clearPaymentScreenshot();
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.set("payment", payment);
+
+    if (requiresPaymentProof) {
+      if (!paymentScreenshot) {
+        await Swal.fire({
+          icon: "warning",
+          title: "Payment Screenshot Required",
+          text: "Please upload a screenshot of your payment before submitting.",
+          confirmButtonText: "OK",
+          ...swalTheme,
+        });
+        setLoading(false);
+        return;
+      }
+
+      formData.set("paymentProof", paymentScreenshot);
+    }
 
     try {
       const res = await fetch("/api/enroll", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          age: formData.get("age"),
-          contact: formData.get("contact"),
-          email: formData.get("email"),
-          skillLevel: formData.get("skillLevel"),
-          position: formData.get("position"),
-          package: formData.get("package"),
-          payment,
-          notes: formData.get("notes"),
-        }),
+        body: formData,
       });
 
       const data = await res.json();
@@ -117,8 +176,9 @@ export function EnrollmentForm() {
       }
 
       form.reset();
-      setPayment("gcash");
+      setPayment("paymaya");
       setSelectedPackageId("");
+      clearPaymentScreenshot();
 
       const url = new URL(window.location.href);
       url.searchParams.delete("package");
@@ -201,11 +261,20 @@ export function EnrollmentForm() {
             name="age"
             type="number"
             min={5}
-            max={99}
+            max={50}
             placeholder="Age *"
             required
             disabled={loading}
             aria-label="Age"
+            onInput={(e) => {
+              const input = e.currentTarget;
+              if (input.value.length > 2) {
+                input.value = input.value.slice(0, 2);
+              }
+              if (input.value && Number(input.value) > 50) {
+                input.value = "50";
+              }
+            }}
           />
           <Input
             name="contact"
@@ -309,7 +378,7 @@ export function EnrollmentForm() {
                   key={method.id}
                   type="button"
                   disabled={loading}
-                  onClick={() => setPayment(method.id)}
+                  onClick={() => handlePaymentChange(method.id)}
                   className={`flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm transition-all ${
                     payment === method.id
                       ? "border-accent-orange bg-accent-orange/10 text-accent-orange"
@@ -321,6 +390,74 @@ export function EnrollmentForm() {
                 </button>
               ))}
             </div>
+            {paymentQrImages[payment] && (
+              <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-center">
+                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-white/40">
+                  Scan to pay
+                </p>
+                <Image
+                  src={paymentQrImages[payment]}
+                  alt={`${payment === "bpi" ? "BPI" : "PayMaya"} payment QR code`}
+                  width={240}
+                  height={240}
+                  className="mx-auto rounded-lg"
+                />
+              </div>
+            )}
+            {requiresPaymentProof && (
+              <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+                <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-white/40">
+                  Payment Screenshot *
+                </label>
+                <p className="mb-3 text-sm text-white/50">
+                  Upload a screenshot of your {payment === "bpi" ? "BPI transfer" : "PayMaya"}{" "}
+                  payment before submitting.
+                </p>
+                {!paymentScreenshot ? (
+                  <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-white/20 px-4 py-8 text-center transition-colors hover:border-accent-orange/50 hover:bg-white/5">
+                    <Upload className="h-6 w-6 text-white/40" />
+                    <span className="text-sm text-white/70">Click to upload screenshot</span>
+                    <span className="text-xs text-white/40">JPG, PNG, or WebP up to 5MB</span>
+                    <input
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      className="sr-only"
+                      disabled={loading}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0] ?? null;
+                        selectPaymentScreenshot(file);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+                ) : (
+                  <div className="space-y-3">
+                    {paymentScreenshotPreview && (
+                      <div className="relative overflow-hidden rounded-lg border border-white/10">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={paymentScreenshotPreview}
+                          alt="Payment screenshot preview"
+                          className="mx-auto max-h-64 w-full object-contain bg-black/20"
+                        />
+                      </div>
+                    )}
+                    <div className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+                      <p className="truncate text-sm text-white/70">{paymentScreenshot.name}</p>
+                      <button
+                        type="button"
+                        disabled={loading}
+                        onClick={clearPaymentScreenshot}
+                        className="inline-flex items-center gap-1 text-xs text-white/50 transition-colors hover:text-white"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <p className="rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-white/40">
@@ -328,7 +465,12 @@ export function EnrollmentForm() {
             Packages must be consumed within validity period. Sessions are transferable.
           </p>
 
-          <Button type="submit" className="w-full" size="lg" disabled={loading}>
+          <Button
+            type="submit"
+            className="w-full"
+            size="lg"
+            disabled={loading || !canSubmit}
+          >
             {loading ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />

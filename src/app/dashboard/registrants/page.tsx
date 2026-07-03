@@ -19,6 +19,7 @@ interface Registrant {
   packagePriceLabel: string;
   payment: string;
   notes: string;
+  hasPaymentProof: boolean;
   createdAt: string | null;
 }
 
@@ -250,6 +251,7 @@ export default function RegistrantsPage() {
           className="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900"
         >
           <option value="">All payments</option>
+          <option value="paymaya">PayMaya</option>
           <option value="gcash">GCash</option>
           <option value="bpi">BPI</option>
           <option value="cash">Cash</option>
@@ -326,7 +328,19 @@ export default function RegistrantsPage() {
                     </td>
                     <td className="px-3 py-3 text-gray-600">{user.skillLevel}</td>
                     <td className="px-3 py-3 text-gray-600">{user.position}</td>
-                    <td className="px-3 py-3 text-gray-600">{user.payment}</td>
+                    <td className="px-3 py-3 text-gray-600">
+                      <div>{user.payment}</div>
+                      {user.hasPaymentProof && (
+                        <a
+                          href={`/api/dashboard/registrants/${user._id}/payment-proof`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 inline-block text-xs font-medium text-orange-700 hover:underline"
+                        >
+                          View proof
+                        </a>
+                      )}
+                    </td>
                     <td className="whitespace-nowrap px-3 py-3 text-gray-500">
                       {formatDate(user.createdAt)}
                     </td>

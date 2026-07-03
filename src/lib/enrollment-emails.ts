@@ -32,14 +32,14 @@ export function buildWelcomeEmailHtml(options: {
   return `
     <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a">
       <div style="background:#0a0a0f;padding:28px 24px;text-align:center">
-        <h1 style="margin:0;color:#ff6b35;font-size:22px;letter-spacing:1px">JSkills Basketball Clinic</h1>
-        <p style="margin:8px 0 0;color:rgba(255,255,255,0.7);font-size:14px">Your development our focus</p>
+        <h1 style="margin:0;color:#ff6b35;font-size:22px;letter-spacing:1px">JSkills Basketball</h1>
+        <p style="margin:8px 0 0;color:rgba(255,255,255,0.7);font-size:14px">Play with excellence play with Purpose</p>
       </div>
       <div style="padding:32px 24px;background:#ffffff">
         <p style="margin:0 0 8px;font-size:16px">Hi ${escapeHtml(playerName)},</p>
         <h2 style="margin:0 0 16px;font-size:20px;color:#0a0a0f">Welcome to JSkills!</h2>
         <p style="margin:0 0 16px;line-height:1.6;color:#444">
-          Thank you for enrolling with <strong>JSkills Basketball Clinic</strong>.
+          Thank you for enrolling with <strong>JSkills Basketball</strong>.
           We have received your registration and are excited to help you grow on and off the court.
         </p>
         <div style="margin:24px 0;padding:20px;border-radius:12px;border:1px solid #ffe0d4;background:#fff8f5">
@@ -73,7 +73,7 @@ export function buildWelcomeEmailHtml(options: {
         </p>
       </div>
       <p style="margin:0;padding:16px 24px;background:#f5f5f5;font-size:12px;color:#888;text-align:center">
-        JSkills Basketball Clinic · BGC · Greenhills · Quezon City
+        JSkills Basketball · BGC · Greenhills · Quezon City
       </p>
     </div>
   `;

@@ -23,9 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <motion.div variants={scaleIn} whileHover={{ y: -6 }} transition={{ duration: 0.3 }}>
       <Card className="group overflow-hidden transition-all duration-300 hover:border-accent-orange/30 hover:shadow-glow">
         <div className="relative aspect-square overflow-hidden">
-          {hasVisual && product.productType ? (
-            <ShopProductVisual type={product.productType} />
-          ) : hasImage ? (
+          {hasImage ? (
             <LazyImage
               src={product.image}
               alt={product.name}
@@ -33,6 +31,8 @@ export function ProductCard({ product }: ProductCardProps) {
               sizes="(max-width: 768px) 50vw, 25vw"
               className="transition-transform duration-500 group-hover:scale-110"
             />
+          ) : hasVisual && product.productType ? (
+            <ShopProductVisual type={product.productType} />
           ) : null}
 
           {product.badge && (

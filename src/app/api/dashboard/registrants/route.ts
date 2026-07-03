@@ -60,6 +60,7 @@ export async function GET(request: NextRequest) {
       packagePriceLabel: user.packagePriceLabel ?? "",
       payment: user.payment ?? "",
       notes: user.notes ?? "",
+      hasPaymentProof: Boolean(user.paymentProof?.data),
       createdAt: user.createdAt
         ? new Date(user.createdAt).toISOString()
         : user.submittedAt

@@ -5,7 +5,7 @@ const siteName = SITE_NAME;
 const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://coach-edmar.vercel.app";
 const siteUrl = siteOrigin;
 const defaultDescription =
-  "Your development our focus. Train skills, mold character, preach the Gospel. 1-on-1 and group basketball training in BGC, Greenhills, and Quezon City.";
+  "Play with excellence play with Purpose. Train skills, mold character, preach the Gospel. 1-on-1 and group basketball training in BGC, Greenhills, and Quezon City.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),

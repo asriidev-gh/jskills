@@ -1,7 +1,7 @@
 [
   {
     "id": "events-1",
-    "src": "/images/training_in_action/events/events_1.jpg",
+    "src": "/images/events/726380494_1321538732888078_1531159361196520861_n.jpg",
     "alt": "JSkills clinic event — on-court action",
     "category": "events",
     "objectPosition": "center top",
@@ -9,7 +9,7 @@
   },
   {
     "id": "events-2",
-    "src": "/images/training_in_action/events/events_2.jpg",
+    "src": "/images/events/722115903_2277986483027434_8038211801550383176_n.jpg",
     "alt": "JSkills clinic event — team training",
     "category": "events",
     "objectPosition": "center top",
@@ -17,7 +17,7 @@
   },
   {
     "id": "events-3",
-    "src": "/images/training_in_action/events/events_3.jpg",
+    "src": "/images/events/733589965_1541668727357183_1561865263076441305_n.jpg",
     "alt": "JSkills clinic event — skills session",
     "category": "events",
     "objectPosition": "center top",
@@ -25,8 +25,32 @@
   },
   {
     "id": "events-4",
-    "src": "/images/training_in_action/events/events_4.jpg",
+    "src": "/images/events/726644596_1693326028254741_9110479133992486730_n.jpg",
     "alt": "JSkills clinic event — group workout",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-5",
+    "src": "/images/events/730940860_1731121901222688_6967569694386267594_n.jpg",
+    "alt": "JSkills clinic event — player development",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-6",
+    "src": "/images/events/731572701_1543723307540001_6322611750643572545_n.jpg",
+    "alt": "JSkills clinic event — basketball drills",
+    "category": "events",
+    "objectPosition": "center top",
+    "aspectRatio": "portrait"
+  },
+  {
+    "id": "events-7",
+    "src": "/images/events/734896392_1517075983229625_7498728020974853982_n.jpg",
+    "alt": "JSkills clinic event — training session",
     "category": "events",
     "objectPosition": "center top",
     "aspectRatio": "portrait"
