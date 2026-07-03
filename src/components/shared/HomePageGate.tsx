@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { PageLoader } from "@/components/shared/PageLoader";
 import { preloadHomeAssets } from "@/lib/preload-home-assets";
+import { scrollToHashIfPresent } from "@/lib/scroll-navigation";
 
 interface HomePageGateProps {
   children: React.ReactNode;
@@ -26,6 +27,9 @@ export function HomePageGate({ children }: HomePageGateProps) {
         if (!cancelled) {
           setReady(true);
           document.body.style.overflow = "";
+          window.setTimeout(() => {
+            if (!cancelled) scrollToHashIfPresent();
+          }, 50);
         }
       }, 400);
     });

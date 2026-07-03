@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ProductCard } from "@/components/cards/ProductCard";
 import { SectionTitle } from "@/components/shared/SectionTitle";
+import { EnrollLink } from "@/components/shared/EnrollLink";
 import { Button } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/metadata";
 import { products } from "@/lib/data";
@@ -37,7 +38,7 @@ export default function ShopPage() {
           </p>
           <div className="mt-8 text-center">
             <Button asChild>
-              <Link href="/#enroll">Inquire to Order</Link>
+              <EnrollLink>Inquire to Order</EnrollLink>
             </Button>
           </div>
         </div>

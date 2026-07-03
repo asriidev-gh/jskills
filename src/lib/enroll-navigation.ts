@@ -1,15 +1,21 @@
 export const ENROLL_SECTION_ID = "enroll";
 export const ENROLL_PACKAGE_EVENT = "jskills:enroll-package";
 
-export function scrollToEnrollment(packageId: string) {
+export function scrollToEnrollSection(packageId?: string) {
+  if (typeof window === "undefined") return;
+
   const url = new URL(window.location.href);
-  url.searchParams.set("package", packageId);
+  if (packageId) {
+    url.searchParams.set("package", packageId);
+  }
   url.hash = ENROLL_SECTION_ID;
   window.history.pushState(null, "", url.toString());
 
-  window.dispatchEvent(
-    new CustomEvent(ENROLL_PACKAGE_EVENT, { detail: { packageId } })
-  );
+  if (packageId) {
+    window.dispatchEvent(
+      new CustomEvent(ENROLL_PACKAGE_EVENT, { detail: { packageId } })
+    );
+  }
 
   requestAnimationFrame(() => {
     document.getElementById(ENROLL_SECTION_ID)?.scrollIntoView({
@@ -17,6 +23,10 @@ export function scrollToEnrollment(packageId: string) {
       block: "start",
     });
   });
+}
+
+export function scrollToEnrollment(packageId: string) {
+  scrollToEnrollSection(packageId);
 }
 
 export function getPackageIdFromUrl(): string | null {

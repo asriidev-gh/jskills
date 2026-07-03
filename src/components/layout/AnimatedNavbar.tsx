@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/Logo";
+import { EnrollLink } from "@/components/shared/EnrollLink";
 const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/#gallery", label: "Gallery" },
@@ -77,7 +78,7 @@ export function AnimatedNavbar() {
 
           <div className="hidden xl:block">
             <Button asChild size="sm">
-              <Link href="/#enroll">Enroll Now</Link>
+              <EnrollLink>Enroll Now</EnrollLink>
             </Button>
           </div>
 
@@ -129,7 +130,7 @@ export function AnimatedNavbar() {
                 className="mt-6"
               >
                 <Button asChild>
-                  <Link href="/#enroll">Enroll Now</Link>
+                  <EnrollLink>Enroll Now</EnrollLink>
                 </Button>
               </motion.div>
             </motion.div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone, Share2 } from "lucide-react";
 import { contact } from "@/lib/clinic-data";
 import { Logo } from "@/components/shared/Logo";
+import { EnrollLink } from "@/components/shared/EnrollLink";
 import { ContactDeveloperButton } from "@/components/layout/ContactDeveloperModal";
 
 const footerLinks = [
@@ -37,12 +38,18 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href === "/#enroll" ? (
+                    <EnrollLink className="text-sm text-white/60 transition-colors hover:text-white">
+                      {link.label}
+                    </EnrollLink>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/60 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

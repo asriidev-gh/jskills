@@ -115,7 +115,7 @@ export function EnrollmentForm() {
     window.addEventListener(ENROLL_PACKAGE_EVENT, onPackageSelect);
     window.addEventListener("popstate", applyPackageFromUrl);
 
-    if (window.location.hash === `#${ENROLL_SECTION_ID}` && getPackageIdFromUrl()) {
+    if (window.location.hash === `#${ENROLL_SECTION_ID}`) {
       requestAnimationFrame(() => {
         document.getElementById(ENROLL_SECTION_ID)?.scrollIntoView({
           behavior: "smooth",

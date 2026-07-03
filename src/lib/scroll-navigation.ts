@@ -12,3 +12,17 @@ export function scrollToSection(sectionId: string) {
     });
   });
 }
+
+export function scrollToHashIfPresent() {
+  if (typeof window === "undefined") return;
+
+  const sectionId = window.location.hash.slice(1);
+  if (!sectionId) return;
+
+  requestAnimationFrame(() => {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+}

@@ -13,6 +13,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { SectionTitle } from "@/components/shared/SectionTitle";
+import { EnrollLink } from "@/components/shared/EnrollLink";
 import { ImageLightbox, GalleryThumb } from "@/components/shared/ImageLightbox";
 import { FeaturedCoach } from "@/components/sections/FeaturedCoach";
 import { PackageCard } from "@/components/cards/PackageCard";
@@ -424,7 +425,7 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
                   <p className="mt-1 text-sm text-white/50">{event.location}</p>
                   <p className="mt-4 text-sm text-white/60">{event.description}</p>
                   <Button asChild variant="outline" className="mt-6 w-full" size="sm">
-                    <Link href="/#enroll">Register Interest</Link>
+                    <EnrollLink>Register Interest</EnrollLink>
                   </Button>
                 </CardContent>
               </Card>
@@ -549,7 +550,7 @@ export function ClinicHomeSections({ products, newsArticles }: ClinicHomeSection
           </div>
           <div className="mt-10 text-center">
             <Button asChild size="lg">
-              <Link href="/#enroll">Enroll Now</Link>
+              <EnrollLink>Enroll Now</EnrollLink>
             </Button>
           </div>
         </div>

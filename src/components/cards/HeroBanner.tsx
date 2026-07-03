@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { heroText, fadeIn, staggerContainer, fadeInUp } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { EnrollLink } from "@/components/shared/EnrollLink";
 import { clinic } from "@/lib/clinic-data";
 
 const HERO_VIDEO = "/videos/edmar_hero_banner.mp4";
@@ -120,7 +121,7 @@ export function HeroBanner() {
             className="mt-5 flex flex-col gap-2.5 sm:flex-row"
           >
             <Button asChild size="sm" className="text-xs sm:text-sm">
-              <Link href="/#enroll">Enroll Now</Link>
+              <EnrollLink>Enroll Now</EnrollLink>
             </Button>
             <Button asChild variant="outline" size="sm" className="text-xs sm:text-sm">
               <Link href="/#schedule">Join Next Training</Link>
